@@ -30,4 +30,4 @@ RUN update-locale LANG=$LANG
 RUN mix local.hex
 RUN mix local.rebar
 
-MKDIR /root/project
+RUN mkdir -p /root/project
