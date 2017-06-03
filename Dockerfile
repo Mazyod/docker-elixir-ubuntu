@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER mazyod mazyod@gmail.com
 
-RUN apt-get clean && apt-get update && apt-get install apt-utils locales
+RUN apt-get clean && apt-get update && apt-get install -y apt-utils locales
 RUN locale-gen en_US.UTF-8
 
 ENV LANG en_US.UTF-8
