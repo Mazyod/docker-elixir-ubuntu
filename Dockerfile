@@ -27,8 +27,9 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 RUN update-locale LANG=$LANG
 
-RUN mix local.rebar
-RUN mix local.hex --force
-
 RUN mkdir -p /root/project
 VOLUME ["/root/project"]
+
+RUN cd /root/project
+RUN mix local.rebar
+RUN mix local.hex --force
