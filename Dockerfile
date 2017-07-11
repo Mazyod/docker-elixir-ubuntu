@@ -27,9 +27,11 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 RUN update-locale LANG=$LANG
 
-RUN mkdir -p /root/project
+ENV PROJECT_ROOT /root/project
+ENV MIX_ENV prod
+
+RUN mkdir -p $PROJECT_ROOT
 VOLUME ["/root/project"]
 
-RUN cd /root/project
-RUN mix local.rebar
-RUN mix local.hex --force
+COPY ./build-script.sh /root
+ENTRYPOINT ["./root/build-script.sh"]
